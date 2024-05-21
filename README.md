@@ -4,6 +4,23 @@ Intourist Telegram Bot
 ## Overview
 Intourist Telegram Bot is a bot to view tours' schedule, reserve a tour and make payments. The core funcionality will be focused on payment processing. Then I want to track all the info in DB (preferably PostgreSQL). Also I would love to figure out: Admin Panel for setting the schedule, checking reservasions and payments, and probably configure it with Trello (a current tool for tracking our signed up clients).
 
+### Key Models
+#### General:
+* User with administrative fields (group assignment client/guide/admin, permissions, is staff, is admin, is superuser) and profile information (photo, instagram etc.)
+* Location
+* Tour with location, schedule, common details
+* TourInstance with tour, date, guide, tourists/group of tourists
+* TouristAttendance?
+
+#### Billing:
+* Reservation
+* Payment
+
+#### Loyalty Program:
+* History 
+* Balance
+* Levels
+
 ## Development Steps
 - [x] Set up a basic echo bot to understand the Telegram Bot package
 - [x] Set up a test payment bot to understand the logic of payments
