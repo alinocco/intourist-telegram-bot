@@ -5,12 +5,14 @@ Intourist Telegram Bot
 Intourist Telegram Bot is a bot to view tours' schedule, reserve a tour and make payments. The core funcionality will be focused on payment processing. Then I want to track all the info in DB (preferably PostgreSQL). Also I would love to figure out: Admin Panel for setting the schedule, checking reservasions and payments, and probably configure it with Trello (a current tool for tracking our signed up clients).
 
 ## Development Steps
-* Set up a basic echo bot to understand the Telegram Bot package.
-* Set up a test payment bot to understand the logic of payments.
-* Decide the tools for Web side of application: Django, FastAPI, or custom solution. Most likely, it will be Django because of its access to Admin Panel available out-of-the-box.
-* Implement the chosen framework project with existing Telegram Bot code.
-* Implement proper admin panel.
-* Provide integration with Trello to track clients/reservations/payments.
+- [x] Set up a basic echo bot to understand the Telegram Bot package
+- [x] Set up a test payment bot to understand the logic of payments
+- [ ] Define the scope of work: web app / mobile app / telegram bot with trello integration 
+- [ ] Design architecture and DB
+- [ ] Decide the tools for Web side of application: Django, FastAPI, or custom solution. Most likely, it will be Django because of its access to Admin Panel available out-of-the-box
+- [ ] Implement the chosen framework project with existing Telegram Bot code
+- [ ] Implement proper admin panel
+- [ ] Provide integration with Trello to track clients/reservations/payments
 
 ## Setup
 
@@ -38,5 +40,9 @@ Intourist Telegram Bot is a bot to view tours' schedule, reserve a tour and make
 5. Install dependencies:
    ```
    poetry install
+   ```
+6. Run the main script:
+   ```
+   python3 src/main.py
    ```
 
