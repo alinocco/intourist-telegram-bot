@@ -7,7 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-python-telegram-bot = "13.12"
+aiogram = "^3.6.0"
+python-decouple = "^3.8"
 
 
 [build-system]
