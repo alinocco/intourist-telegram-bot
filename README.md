@@ -22,6 +22,7 @@ Intourist Telegram Bot is a bot to view tours' schedule, reserve a tour and make
 * Levels
 
 ## Development Steps
+### Whole Product:
 - [x] Set up a basic echo bot to understand the Telegram Bot package
 - [x] Set up a test payment bot to understand the logic of payments
 - [ ] Define the scope of work: web app / mobile app / telegram bot with trello integration 
@@ -30,6 +31,12 @@ Intourist Telegram Bot is a bot to view tours' schedule, reserve a tour and make
 - [ ] Implement the chosen framework project with existing Telegram Bot code
 - [ ] Implement proper admin panel
 - [ ] Provide integration with Trello to track clients/reservations/payments
+
+### Telegram-bot with Trello Integration:
+- [x] Basic payments
+- [ ] Basic FSM 
+- [ ] Implement user flow: schedule with tours -> pick up a tour -> payment -> name -> phone 
+- [ ] Implement Trello integration via API
 
 ## Setup
 
