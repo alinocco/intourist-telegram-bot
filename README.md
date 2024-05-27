@@ -63,10 +63,10 @@ Make payment.
 
 #### Business Flow
 
-The schedule is preserved in Google Sheets file (or better DB and Admin). The user: gets the scheduled tours with `/tours` command. Pick up a
-tour. Provide number of people, name, phone (for each) and additional info. Make payment. On successful payment, we
-update Trello Board by adding the new tourists to the corresponding tour. Additionally, we can notify client the day
-before the tour (DB needed).
+The schedule is preserved in Google Sheets file (or better DB and Admin). The user: gets the scheduled tours
+with `/tours` command. Pick up a tour. Provide number of people, name, phone (for each) and additional info. Make
+payment. On successful payment, we update Trello Board by adding the new tourists to the corresponding tour.
+Additionally, we can notify client the day before the tour (DB needed).
 
 ## Setup
 
