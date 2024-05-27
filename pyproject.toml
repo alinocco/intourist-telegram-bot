@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.12"
 aiogram = "^3.6.0"
 python-decouple = "^3.8"
+requests = "^2.32.2"
 
 
 [build-system]
