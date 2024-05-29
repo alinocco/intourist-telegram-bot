@@ -32,7 +32,7 @@ Trello (a current tool for tracking our signed up clients).
 
 ## Development Steps
 
-### Whole Product
+#### Whole Product
 
 - [x] Set up a basic echo bot to understand the Telegram Bot package
 - [x] Set up a test payment bot to understand the logic of payments
@@ -44,7 +44,7 @@ Trello (a current tool for tracking our signed up clients).
 - [ ] Implement proper admin panel
 - [ ] Provide integration with Trello to track clients/reservations/payments
 
-### Telegram-bot with Trello Integration
+#### Telegram-bot with Trello Integration
 
 - [x] Basic payments
 - [x] Basic FSM
@@ -68,7 +68,7 @@ with `/tours` command. Pick up a tour. Provide number of people, name, phone (fo
 payment. On successful payment, we update Trello Board by adding the new tourists to the corresponding tour.
 Additionally, we can notify client the day before the tour (DB needed).
 
-### Database
+#### Database
 Diagram: https://drawsql.app/teams/elevendio/diagrams/intourist-database-design
 
 Questions:
