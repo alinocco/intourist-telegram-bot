@@ -68,6 +68,15 @@ with `/tours` command. Pick up a tour. Provide number of people, name, phone (fo
 payment. On successful payment, we update Trello Board by adding the new tourists to the corresponding tour.
 Additionally, we can notify client the day before the tour (DB needed).
 
+### Database
+Diagram: https://drawsql.app/teams/elevendio/diagrams/intourist-database-design
+
+Questions:
+1. Organization of roles (client, guide, admin) and permissions.
+2. Tour and TourInstance. Which data should be in Tour which in Tour Instance? Should we copy some data to have precise statistics on prices in Tour Instance and allow modifications in Tours?
+3. Should we connect all logic to User or Profile?
+4. Is the tour is available (group is full with max_people)?
+
 ## Setup
 
 ### Install
