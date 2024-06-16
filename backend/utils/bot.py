@@ -9,7 +9,7 @@ from aiogram.fsm.state import StatesGroup, State
 from aiogram.types import ReplyKeyboardRemove
 
 import settings
-from src.utils.keyboards import make_row_keyboard
+from backend.utils.utils.keyboards import make_row_keyboard
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=settings.TELEGRAM_TOKEN)

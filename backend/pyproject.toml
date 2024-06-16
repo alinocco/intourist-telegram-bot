@@ -10,6 +10,8 @@ python = "^3.12"
 aiogram = "^3.6.0"
 python-decouple = "^3.8"
 requests = "^2.32.2"
+django = "^5.0.6"
+psycopg2-binary = "^2.9.9"
 
 
 [build-system]
