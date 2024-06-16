@@ -17,7 +17,7 @@ Trello (a current tool for tracking our signed up clients).
 * Location
 * Tour with location, schedule, common details
 * TourInstance with tour, date, guide, tourists/group of tourists
-* TouristAttendance?
+* TouristAttendance
 
 #### Billing
 
@@ -37,9 +37,10 @@ Trello (a current tool for tracking our signed up clients).
 - [x] Set up a basic echo bot to understand the Telegram Bot package
 - [x] Set up a test payment bot to understand the logic of payments
 - [x] Define the scope of work: web app, mobile app or **Telegram bot with Trello integration**
-- [ ] Design architecture and database
-- [ ] Decide the tools for Web side of application: Django, FastAPI, or custom solution. Most likely, it will be Django
-  because of its access to Admin Panel available out-of-the-box
+- [x] Design architecture and database
+- [x] Decide the tools for Web side of application: **Django**, FastAPI, or custom solution. Most likely, it will be
+  Django because of its access to Admin Panel available out-of-the-box. Telegram bot will be implemented inside Django
+  monolith with webhook approach
 - [ ] Implement the chosen framework project with existing Telegram Bot code
 - [ ] Implement proper admin panel
 - [ ] Provide integration with Trello to track clients/reservations/payments
@@ -49,9 +50,9 @@ Trello (a current tool for tracking our signed up clients).
 - [x] Basic payments
 - [x] Basic FSM
 - [x] Basic Trello API
-- [ ] Design business flow
-- [ ] Design architecture
-- [ ] Design database
+- [x] Design business flow
+- [x] Design architecture
+- [x] Design database
 - [ ] Implement user flow
 - [ ] Implement business flow
 - [ ] Notifications
@@ -69,17 +70,26 @@ payment. On successful payment, we update Trello Board by adding the new tourist
 Additionally, we can notify client the day before the tour (DB needed).
 
 #### Database
+
 Diagram: https://drawsql.app/teams/elevendio/diagrams/intourist-database-design
 
 Questions:
-1. Organization of roles (client, guide, admin) and permissions.
-2. Tour and TourInstance. Which data should be in Tour which in Tour Instance? Should we copy some data to have precise statistics on prices in Tour Instance and allow modifications in Tours?
-3. Should we connect all logic to User or Profile?
-4. Is the tour is available (group is full with max_people)?
+
+* **Organization of roles (client, guide, admin) and permissions.** We'll have users for clients and admin for now.
+* **Tour and Tour Instance. Which data should be in Tour which in Tour Instance? Should we copy some data to have
+  precise statistics on prices in Tour Instance and allow modifications in Tours?** Do it with payment value/quantity.
+* **Should we connect all logic to User or Profile?** View best practices.
+* **Is the tour is available?** Group is full by max people constraint. Is group open boolean for tour group.
 
 ## Setup
 
 ### Install
+
+For dockerized setup:
+
+* [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
+
+For local setup:
 
 * Python Version Management [Pyenv](https://github.com/pyenv/pyenv) with `curl https://pyenv.run | bash`
 * Python Packaging and Dependency Management [Poetry](https://python-poetry.org/docs/) with `python3 install poetry`
@@ -92,21 +102,35 @@ Questions:
    ```
 2. Go to the project folder:
    ```
-   cd wayof-backend
+   cd intourist-telegram-bot
    ```
-3. Set up a proper python version:
+
+For dockerized setup:
+
+3. Run the backend with Docker Compose:
+   ```
+   docker-compose up
+   ```
+
+For local setup:
+
+3. Go to backend folder:
+   ```
+   cd backend
+   ```
+4. Setup the proper Python Version with Pyenv:
    ```
    pyenv install
    ```
-4. Initialize and go to a virtual environment with Poetry:
+5. Initialize and go to a virtual environment with Poetry:
    ```
    poetry shell
    ```
-5. Install dependencies:
+6. Install dependencies:
    ```
    poetry install
    ```
-6. Run the main script:
+7. Run the main script:
    ```
    python3 src/main.py
    ```
