@@ -91,11 +91,12 @@ Diagram: https://drawsql.app/teams/elevendio/diagrams/intourist-database-design
 
 Questions:
 
-* **Organization of roles (client, guide, admin) and permissions.** We'll have users for clients and admin for now.
-* **Tour and Tour Instance. Which data should be in Tour which in Tour Instance? Should we copy some data to have
-  precise statistics on prices in Tour Instance and allow modifications in Tours?** Do it with payment value/quantity.
-* **Should we connect all logic to User or Profile?** Do it inside a customized User.
-* **Is the tour is available?** Group is full by max people constraint. Is group open boolean for tour group.
+* Organization of roles (client, guide, admin) and permissions. We'll have users for clients and admin for now.
+* Tour and Tour Instance. Which data should be in Tour which in Tour Instance? Should we copy some data to have
+  precise statistics on prices in Tour Instance and allow modifications in Tours? Do it with payment value/quantity and
+  preserve all the info that can be changed with creating a new version of Tour and deactivate the old one.
+* Should we connect all logic to User or Profile? Do it inside a customized User.
+* Is the tour is available? Group is full by max people constraint. Is group open boolean for tour group.
 
 ## Setup
 
