@@ -69,7 +69,23 @@ with `/tours` command. Pick up a tour. Provide number of people, name, phone (fo
 payment. On successful payment, we update Trello Board by adding the new tourists to the corresponding tour.
 Additionally, we can notify client the day before the tour (DB needed).
 
-#### Database
+## Architecture
+
+#### Architecture Design
+
+Diagram: https://app.diagrams.net/#G1kII8pscdvBBm_9_xdTcLjCIcFc9lXsCN#%7B%22pageId%22%3A%22jlwJhWtSM1Rf5ebrzyMs%22%7D
+
+![Architecture Design Diagram](documentation/architecture_design.png)
+We get updates from Telegram via long polling or webhooks to Telegram Bot. Telegram Bot utilizes Backend via HTTP/REST
+to work with data. On Backend, we work with DB, synchronize data with Trello via API.
+
+Technology used:
+
+* Telegram Bot: Aiogram 3
+* Backend: Django | FastAPI, SQLAlchemy, Alembic
+* Database: PostgresSQL
+
+#### Database Design
 
 Diagram: https://drawsql.app/teams/elevendio/diagrams/intourist-database-design
 
@@ -78,7 +94,7 @@ Questions:
 * **Organization of roles (client, guide, admin) and permissions.** We'll have users for clients and admin for now.
 * **Tour and Tour Instance. Which data should be in Tour which in Tour Instance? Should we copy some data to have
   precise statistics on prices in Tour Instance and allow modifications in Tours?** Do it with payment value/quantity.
-* **Should we connect all logic to User or Profile?** View best practices.
+* **Should we connect all logic to User or Profile?** Do it inside a customized User.
 * **Is the tour is available?** Group is full by max people constraint. Is group open boolean for tour group.
 
 ## Setup
@@ -107,30 +123,30 @@ For local setup:
 
 For dockerized setup:
 
-3. Run the backend with Docker Compose:
+1. Run the backend with Docker Compose:
    ```
    docker-compose up
    ```
 
 For local setup:
 
-3. Go to backend folder:
+1. Go to backend folder:
    ```
    cd backend
    ```
-4. Setup the proper Python Version with Pyenv:
+2. Set up the proper Python Version with Pyenv:
    ```
    pyenv install
    ```
-5. Initialize and go to a virtual environment with Poetry:
+3. Initialize and go to a virtual environment with Poetry:
    ```
    poetry shell
    ```
-6. Install dependencies:
+4. Install dependencies:
    ```
    poetry install
    ```
-7. Run the main script:
+5. Run the main script:
    ```
    python3 src/main.py
    ```
