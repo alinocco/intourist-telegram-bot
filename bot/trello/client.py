@@ -2,7 +2,7 @@ import json
 
 import requests
 
-from backend.utils import settings
+from bot import settings
 
 
 class TrelloClient:
