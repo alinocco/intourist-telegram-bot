@@ -41,9 +41,12 @@ Trello (a current tool for tracking our signed up clients).
 - [x] Decide the tools for Web side of application: **Django**, FastAPI, or custom solution. Most likely, it will be
   Django because of its access to Admin Panel available out-of-the-box. Telegram bot will be implemented inside Django
   monolith with webhook approach
-- [ ] Implement the chosen framework project with existing Telegram Bot code
-- [ ] Implement proper admin panel
-- [ ] Provide integration with Trello to track clients/reservations/payments
+- [ ] Implement Backend on Django
+- [ ] Implement Backend on FastAPI
+- [ ] Implement Telegram Bot with Long Polling
+- [ ] Implement Telegram Bot with Webhooks
+- [ ] Implement Admin Panel
+- [ ] Implement Trello Integration to track tours/clients/signups
 
 #### Telegram-bot with Trello Integration
 
