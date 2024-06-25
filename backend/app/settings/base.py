@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 from pathlib import Path
 
-from decouple import config
+from app.settings.business_logic import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,11 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
 
     'modules.payments.apps.PaymentsConfig',
     'modules.signups.apps.SignupsConfig',
     'modules.tours.apps.ToursConfig',
     'modules.users.apps.UsersConfig',
+    'modules.utils.apps.UtilsConfig',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +88,11 @@ DATABASES = {
         'PORT': config('POSTGRES_PORT'),
     }
 }
+
+# Auth custom user model
+# https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#specifying-custom-user-model
+
+AUTH_USER_MODEL = 'users.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

@@ -12,6 +12,11 @@ python-decouple = "^3.8"
 requests = "^2.32.2"
 django = "^5.0.6"
 psycopg2-binary = "^2.9.9"
+django-phonenumber-field = "^8.0.0"
+phonenumbers = "^8.13.39"
+django-extensions = "^3.2.3"
+ipython = "^8.25.0"
+django-model-utils = "^4.5.1"
 
 
 [build-system]
