@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'modules.tours.apps.ToursConfig',
-    'modules.signups.apps.SignupsConfig'
-    'modules.users.apps.UsersConfig',
     'modules.payments.apps.PaymentsConfig',
+    'modules.signups.apps.SignupsConfig',
+    'modules.tours.apps.ToursConfig',
+    'modules.users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [

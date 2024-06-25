@@ -37,10 +37,8 @@ Trello (a current tool for tracking our signed up clients).
 - [x] Set up a basic echo bot to understand the Telegram Bot package
 - [x] Set up a test payment bot to understand the logic of payments
 - [x] Define the scope of work: web app, mobile app or **Telegram bot with Trello integration**
-- [x] Design architecture and database
-- [x] Decide the tools for Web side of application: **Django**, FastAPI, or custom solution. Most likely, it will be
-  Django because of its access to Admin Panel available out-of-the-box. Telegram bot will be implemented inside Django
-  monolith with webhook approach
+- [x] Define architecture and database
+- [x] Define the tools for web side of application: **Django**, FastAPI, or custom solution
 - [ ] Implement Backend on Django
 - [ ] Implement Backend on FastAPI
 - [ ] Implement Telegram Bot with Long Polling
@@ -78,7 +76,7 @@ Additionally, we can notify client the day before the tour (DB needed).
 
 Diagram: https://app.diagrams.net/#G1kII8pscdvBBm_9_xdTcLjCIcFc9lXsCN#%7B%22pageId%22%3A%22jlwJhWtSM1Rf5ebrzyMs%22%7D
 
-![Architecture Design Diagram](documentation/architecture_design.png)
+![Architecture Design Diagram](documentation/images/architecture_design.png)
 We get updates from Telegram via long polling or webhooks to Telegram Bot. Telegram Bot utilizes Backend via HTTP/REST
 to work with data. On Backend, we work with DB, synchronize data with Trello via API.
 
@@ -127,31 +125,49 @@ For local setup:
 
 For dockerized setup:
 
-1. Run the backend with Docker Compose:
+1. Set proper .env file (request .env files from the owner):
    ```
-   docker-compose up
+   cp documentation/docker/.env.docker .env
+   ```
+
+2. Run the backend with Docker Compose:
+   ```
+   docker-compose up -d
    ```
 
 For local setup:
 
-1. Go to backend folder:
+1. Set proper .env file (request .env files from the owner):
+   ```
+   cp documentation/docker/.env.docker-db .env
+   ```
+
+2. Run the database for backend with Docker Compose:
+   ```
+   docker-compose -f docker-compose-db.yml up -d
+   ```
+
+3. Go to backend folder:
    ```
    cd backend
    ```
-2. Set up the proper Python Version with Pyenv:
+4. Set up the proper Python Version with Pyenv:
    ```
    pyenv install
    ```
-3. Initialize and go to a virtual environment with Poetry:
+5. Initialize and go to a virtual environment with Poetry:
    ```
    poetry shell
    ```
-4. Install dependencies:
+6. Install dependencies:
    ```
    poetry install
    ```
-5. Run the main script:
+7. Run the main script:
    ```
    python3 src/main.py
    ```
 
+### Issues
+
+* No auto restart of Django server on code update.
