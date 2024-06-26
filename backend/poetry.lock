@@ -364,6 +364,17 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-admin-rangefilter"
+version = "0.13.0"
+description = "django-admin-rangefilter app, add the filter by a custom date range on the admin UI."
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
+files = [
+    {file = "django_admin_rangefilter-0.13.0-py2.py3-none-any.whl", hash = "sha256:ea23896f515fb0974097d6f035a1234d2e30bd33f4e62df2997b2826b1aefd01"},
+    {file = "django_admin_rangefilter-0.13.0.tar.gz", hash = "sha256:d017bb8f44f6fbe262361fa9b0c7bcc05a01919f241f0eff084e1e2da9443084"},
+]
+
+[[package]]
 name = "django-extensions"
 version = "3.2.3"
 description = "Extensions for Django"
@@ -1248,4 +1259,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "95a9a8cf626faa4b55917cb054e1d74c3907e69df4927b28cdd5edcc4f8e56e8"
+content-hash = "196a6775576076ea073342d31b61ac881681f692225a5d314d559802ad195146"

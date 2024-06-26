@@ -18,6 +18,7 @@ django-extensions = "^3.2.3"
 ipython = "^8.25.0"
 django-model-utils = "^4.5.1"
 djangorestframework = "^3.15.2"
+django-admin-rangefilter = "^0.13.0"
 
 
 [build-system]
