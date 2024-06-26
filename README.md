@@ -171,3 +171,10 @@ For local setup:
 ### Issues
 
 * No auto restart of Django server on code update.
+
+### To Do
+
+* Admin for all instances
+* Tour instance population logic with schedule of week days. Creates weekly, periodic task
+* Three endpoints: `/tours`, check availability (can return with `/tours`), `/signup` (with payment info attached)
+* Trello integration with mappers
