@@ -1,5 +1,8 @@
 from django.conf import settings
 from django.db import models
+from django.utils.dates import WEEKDAYS
+from multiselectfield.db.fields import MultiSelectField
+from multiselectfield.validators import MaxValueMultiFieldValidator
 
 from modules.tours.consts import COMPLEXITY_CHOICES, TOUR_INSTANCE_STATUSES
 from modules.utils.models import BaseModel
@@ -24,7 +27,8 @@ class Tour(BaseModel):
     complexity = models.CharField(verbose_name="Сложность", max_length=255, choices=COMPLEXITY_CHOICES)
     locations = models.ManyToManyField(Location, through="TourLocation", related_name="tours")
     program = models.JSONField(verbose_name="Программа", blank=True, null=True)
-    schedule = models.JSONField(verbose_name="Расписание", blank=True, null=True)
+    schedule = MultiSelectField(verbose_name="Расписание создания", choices=WEEKDAYS, blank=True, null=True,
+                                validators=[MaxValueMultiFieldValidator(7)])
     is_active = models.BooleanField(verbose_name="Расписание активировано", default=True)
 
     class Meta:
@@ -34,8 +38,8 @@ class Tour(BaseModel):
 
 
 class TourLocation(BaseModel):
-    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, verbose_name="Тур")
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, verbose_name="Локация")
     order = models.PositiveIntegerField(verbose_name="Порядок", default=1)
 
     class Meta:
