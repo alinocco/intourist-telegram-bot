@@ -101,13 +101,21 @@ Questions:
 
 ## Setup
 
+### Environment Variables
+
+Set of environment variables affected business logic.
+
+| Variable                    | Description                                                               | Default |
+|-----------------------------|---------------------------------------------------------------------------|---------|
+| DEFAULT_MAX_PEOPLE_PER_TOUR | Default max people for a tour. Used to check availability. Updated by X2. | 17      |
+
 ### Install
 
-For dockerized setup:
+**For dockerized setup:**
 
 * [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
 
-For local setup:
+**For local setup:**
 
 * Python Version Management [Pyenv](https://github.com/pyenv/pyenv) with `curl https://pyenv.run | bash`
 * Python Packaging and Dependency Management [Poetry](https://python-poetry.org/docs/) with `python3 install poetry`
@@ -123,7 +131,7 @@ For local setup:
    cd intourist-telegram-bot
    ```
 
-For dockerized setup:
+**For dockerized setup:**
 
 1. Set proper .env file (request .env files from the owner):
    ```
@@ -135,7 +143,7 @@ For dockerized setup:
    docker-compose up -d
    ```
 
-For local setup:
+**For local setup:**
 
 1. Set proper .env file (request .env files from the owner):
    ```
