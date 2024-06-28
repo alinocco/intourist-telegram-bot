@@ -149,6 +149,6 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
 # Business logic
-#
+# https://github.com/alinocco/intourist-telegram-bot?tab=readme-ov-file#environment-variables
 
 DEFAULT_MAX_PEOPLE_PER_TOUR = config('DEFAULT_MAX_PEOPLE_PER_TOUR', 17)
