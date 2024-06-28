@@ -2,7 +2,6 @@ from django.conf import settings
 from django.db import models
 from django.utils.dates import WEEKDAYS
 from multiselectfield.db.fields import MultiSelectField
-from multiselectfield.validators import MaxValueMultiFieldValidator
 
 from modules.tours.consts import COMPLEXITY_CHOICES, TOUR_INSTANCE_STATUSES
 from modules.utils.models import BaseModel
@@ -27,14 +26,16 @@ class Tour(BaseModel):
     complexity = models.CharField(verbose_name="Сложность", max_length=255, choices=COMPLEXITY_CHOICES)
     locations = models.ManyToManyField(Location, through="TourLocation", related_name="tours")
     program = models.JSONField(verbose_name="Программа", blank=True, null=True)
-    schedule = MultiSelectField(verbose_name="Расписание создания", choices=WEEKDAYS, blank=True, null=True,
-                                validators=[MaxValueMultiFieldValidator(7)])
+    schedule = MultiSelectField(verbose_name="Расписание создания", choices=WEEKDAYS, blank=True, null=True)
     is_active = models.BooleanField(verbose_name="Расписание активировано", default=True)
 
     class Meta:
         _splash = "Тур%s"
         verbose_name = _splash % ""
         verbose_name_plural = _splash % "ы"
+
+    def __str__(self):
+        return self.name
 
 
 class TourLocation(BaseModel):
@@ -58,17 +59,19 @@ class Guide(BaseModel):
 
 
 class TourInstance(BaseModel):
-    tour = models.ForeignKey(Tour, on_delete=models.PROTECT, related_name="tour_instances")
+    tour = models.ForeignKey(Tour, on_delete=models.PROTECT, verbose_name="Тур", related_name="tour_instances")
     guides = models.ManyToManyField(Guide, related_name="tour_instances")
     date = models.DateField(verbose_name="Дата")
-    status = models.CharField(verbose_name="Статус", max_length=255, choices=TOUR_INSTANCE_STATUSES)
-    telegram_group = models.URLField(verbose_name="Telegram группа", max_length=255)
-    whatsapp_group = models.URLField(verbose_name="WhatsApp группа", max_length=255)
+    # TODO: decide default status
+    status = models.CharField(verbose_name="Статус", max_length=255, choices=TOUR_INSTANCE_STATUSES,
+                              default=TOUR_INSTANCE_STATUSES.pending)
+    telegram_group = models.URLField(verbose_name="Telegram группа", max_length=255, null=True, blank=True)
+    whatsapp_group = models.URLField(verbose_name="WhatsApp группа", max_length=255, null=True, blank=True)
 
     maximum_people = models.PositiveIntegerField(verbose_name="Максимум человек",
                                                  default=settings.DEFAULT_MAX_PEOPLE_PER_TOUR)
 
     class Meta:
-        _splash = "Отдельный тур%s"
-        verbose_name = _splash % ""
-        verbose_name_plural = _splash % "ы"
+        _splash = "Отдельны%s тур%s"
+        verbose_name = _splash % ("й", "")
+        verbose_name_plural = _splash % ("е", "ы")
