@@ -23,6 +23,7 @@ celery = "^5.4.0"
 redis = "^5.0.7"
 django-multiselectfield = {git = "https://github.com/goinnn/django-multiselectfield.git"}
 pandas = "^2.2.2"
+django-celery-beat = "^2.6.0"
 
 
 [build-system]

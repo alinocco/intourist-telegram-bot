@@ -13,7 +13,5 @@ def get_dates_in_period(start_date: datetime, end_date: datetime, weekdays: list
     :return: list of dates
     """
     all_dates = pd.date_range(start=start_date, end=end_date)
-    print([date for date in all_dates if date.weekday()])
     selected_dates = [date for date in all_dates if date.weekday() in weekdays]
-
     return selected_dates

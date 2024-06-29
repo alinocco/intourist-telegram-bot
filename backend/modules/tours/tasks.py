@@ -19,8 +19,6 @@ def create_tour_instances_for_period(tour: Tour, start: datetime, end: datetime)
     # TODO: make schedule Array of Integer not Char
     dates = get_dates_in_period(start, end, schedule)
     for date in dates:
-        print(date)
-    for date in dates:
         TourInstance.objects.create(
             tour=tour,
             date=date,
