@@ -182,7 +182,9 @@ Set of environment variables affected business logic.
 
 ### To Do
 
-* Admin for all instances
-* Tour instance population logic with schedule of week days. Creates weekly, periodic task
-* Three endpoints: `/tours`, check availability (can return with `/tours`), `/signup` (with payment info attached)
-* Trello integration with mappers
+* Admin for all instances.
+* Three endpoints: `/tours`, check availability (can return with `/tours`), `/signup` (with payment info attached).
+* Trello integration with mappers.
+
+### Done
+* Tour instance population logic with schedule of week days. Creates weekly, periodic task.
