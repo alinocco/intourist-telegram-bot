@@ -92,7 +92,7 @@ class TourInstance(BaseModel):
 
     @property
     def current_people_quantity(self):
-        return self.tourist_signups.aggregate(people_quantity=Sum('people_quantity'))['people_quantity']
+        return self.tourist_signups.aggregate(people_quantity=Sum('people_quantity', default=0))['people_quantity']
 
     def is_available(self, people_quantity):
         return self.current_people_quantity + people_quantity <= self.maximum_people
