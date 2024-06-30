@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_celery_beat',
     'django_extensions',
+    'drf_yasg',
     'multiselectfield',
     'rangefilter',
     'rest_framework',
@@ -119,9 +120,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'ru-RU'
+LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'KG'
+TIME_ZONE = 'Asia/Bishkek'
 
 USE_I18N = True
 
