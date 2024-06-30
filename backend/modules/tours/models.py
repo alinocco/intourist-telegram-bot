@@ -79,8 +79,8 @@ class TourInstance(BaseModel):
     telegram_group = models.URLField(verbose_name='Telegram группа', max_length=255, null=True, blank=True)
     whatsapp_group = models.URLField(verbose_name='WhatsApp группа', max_length=255, null=True, blank=True)
 
-    maximum_people_quantity = models.PositiveIntegerField(verbose_name='Максимум человек',
-                                                          default=settings.DEFAULT_MAX_PEOPLE_PER_TOUR)
+    maximum_people = models.PositiveIntegerField(verbose_name='Максимум человек',
+                                                 default=settings.DEFAULT_MAX_PEOPLE_PER_TOUR)
 
     class Meta:
         _splash = 'Отдельны%s тур%s'
@@ -95,4 +95,4 @@ class TourInstance(BaseModel):
         return self.tourist_signups.aggregate(people_quantity=Sum('people_quantity'))['people_quantity']
 
     def is_available(self, people_quantity):
-        return self.current_people_quantity + people_quantity <= self.maximum_people_quantity
+        return self.current_people_quantity + people_quantity <= self.maximum_people
