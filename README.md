@@ -176,6 +176,10 @@ Set of environment variables affected business logic.
    python3 src/main.py
    ```
 
+### Additional Steps
+
+* Set periodic task weekly for tour instance population logic with schedule of week days.
+
 ### Issues
 
 * No auto restart of Django server on code update.
@@ -183,8 +187,5 @@ Set of environment variables affected business logic.
 ### To Do
 
 * Admin for all instances.
-* Three endpoints: `/tours`, check availability (can return with `/tours`), `/signup` (with payment info attached).
+* `/signup` (with payment info attached).
 * Trello integration with mappers.
-
-### Done
-* Tour instance population logic with schedule of week days. Creates weekly, periodic task.
