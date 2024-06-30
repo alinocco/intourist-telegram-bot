@@ -1,9 +1,12 @@
+from datetime import datetime
+
 from django.conf import settings
 from django.db import models
 from django.utils.dates import WEEKDAYS
 from multiselectfield.db.fields import MultiSelectField
 
 from modules.tours.consts import COMPLEXITY_CHOICES, TOUR_INSTANCE_STATUSES
+from modules.tours.utils import schedule_dates_in_period
 from modules.utils.models import BaseModel
 
 
@@ -37,6 +40,14 @@ class Tour(BaseModel):
     def __str__(self):
         return self.name
 
+    @property
+    def schedule_as_integers(self):
+        return [int(day) for day in self.schedule]
+
+    def create_tour_instances_for_period(self, start_date: datetime, end_date: datetime):
+        for date in schedule_dates_in_period(self.schedule_as_integers, start_date, end_date):
+            TourInstance.objects.create(tour=self, date=date)
+
 
 class TourLocation(BaseModel):
     tour = models.ForeignKey(Tour, on_delete=models.CASCADE, verbose_name="Тур")
@@ -62,7 +73,6 @@ class TourInstance(BaseModel):
     tour = models.ForeignKey(Tour, on_delete=models.PROTECT, verbose_name="Тур", related_name="tour_instances")
     guides = models.ManyToManyField(Guide, related_name="tour_instances")
     date = models.DateField(verbose_name="Дата")
-    # TODO: decide default status
     status = models.CharField(verbose_name="Статус", max_length=255, choices=TOUR_INSTANCE_STATUSES,
                               default=TOUR_INSTANCE_STATUSES.pending)
     telegram_group = models.URLField(verbose_name="Telegram группа", max_length=255, null=True, blank=True)
