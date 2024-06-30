@@ -24,6 +24,8 @@ redis = "^5.0.7"
 django-multiselectfield = {git = "https://github.com/goinnn/django-multiselectfield.git"}
 pandas = "^2.2.2"
 django-celery-beat = "^2.6.0"
+drf-yasg = "^1.21.7"
+setuptools = "^70.1.1"
 
 
 [build-system]
