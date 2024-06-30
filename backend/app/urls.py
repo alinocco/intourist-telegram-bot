@@ -15,12 +15,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
+
+from modules.utils.openapi.schema_generator import get_schema_view
+
+admin.autodiscover()
+
+schema_view = get_schema_view(title='Intourist', version='1.0')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('payments/', include('modules.payments.rest.urls')),
-    path('signups/', include('modules.signups.rest.urls')),
-    path('tours/', include('modules.tours.rest.urls')),
-    path('users/', include('modules.users.rest.urls')),
+    path(
+        'api/',
+        include(
+            [
+                path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+                path('payments/', include('modules.payments.rest.urls')),
+                path('signups/', include('modules.signups.rest.urls')),
+                path('tours/', include('modules.tours.rest.urls')),
+                path('users/', include('modules.users.rest.urls')),
+                # path('auth/', include('rest_framework.urls', namespace='rest_framework')),
+            ]
+        ),
+    ),
 ]
