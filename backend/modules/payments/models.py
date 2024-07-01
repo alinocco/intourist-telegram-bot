@@ -13,3 +13,6 @@ class Payment(BaseModel):
         _splash = "Оплат%s"
         verbose_name = _splash % "а"
         verbose_name_plural = _splash % "ы"
+
+    def __str__(self):
+        return f'{self.tourist_signup.tour} - {self.amount}'

@@ -5,4 +5,4 @@ class ToursConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'modules.tours'
 
-    verbose_name = 'Туры'
+    verbose_name = "Туры"

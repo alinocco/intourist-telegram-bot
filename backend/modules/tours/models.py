@@ -88,7 +88,7 @@ class TourInstance(BaseModel):
         verbose_name_plural = _splash % ("е", "ы")
 
     def __str__(self):
-        return f"{self.tour.name} | {self.date}"
+        return f"{self.date} {self.tour.name}"
 
     @property
     def current_people_quantity(self):

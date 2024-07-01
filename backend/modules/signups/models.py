@@ -10,7 +10,7 @@ from modules.utils.models import BaseModel
 class TouristSignup(BaseModel):
     tour_instance = models.ForeignKey(TourInstance, on_delete=models.PROTECT, related_name="tourist_signups")
     tourist = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name="tourist_signups")
-    payment = models.ForeignKey(Payment, on_delete=models.PROTECT, related_name="tourist_signups")
+    payment = models.OneToOneField(Payment, on_delete=models.PROTECT, related_name="tourist_signup")
     status = models.CharField(verbose_name="Статус", max_length=255, choices=TOURIST_SIGNUPS_STATUSES,
                               default=TOURIST_SIGNUPS_STATUSES.reserved)
     people_quantity = models.PositiveIntegerField(verbose_name="Количество людей", default=1)
