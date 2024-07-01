@@ -22,6 +22,7 @@ class AvailabilitySerializer(serializers.Serializer):
 
     def validate_people_quantity(self, value):
         tour_instance = self.context['tour_instance']
+        # TODO: return how many available.
         if not tour_instance.is_available(value):
             raise serializers.ValidationError(
                 f'Tour is not available for {value} people.'
