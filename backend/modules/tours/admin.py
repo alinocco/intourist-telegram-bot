@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from rangefilter.filters import DateRangeFilter
 
 from modules.tours.models import Tour, TourInstance
@@ -73,7 +74,7 @@ class TourInstanceAdmin(admin.ModelAdmin):
                     "guides",
                     "status",
                     "maximum_people",
-                    # TODO: signed-up people
+                    "current_people_quantity",
                 )
             },
         ),
@@ -93,10 +94,10 @@ class TourInstanceAdmin(admin.ModelAdmin):
     list_display = (
         "tour",
         "date",
-        # TODO: get_guides
         "status",
+        "get_guides",
         "maximum_people",
-        # TODO: signed-up people
+        "current_people_quantity",
         "created_date",
         "modified_date",
     )
@@ -109,5 +110,12 @@ class TourInstanceAdmin(admin.ModelAdmin):
         ("created_date", DateRangeFilter)
     )
 
-    readonly_fields = ("created_date", "modified_date")
+    readonly_fields = ("created_date", "modified_date", "current_people_quantity")
     search_fields = ("tour.name", "guide.name")
+
+    def get_guides(self, obj):
+        value = "<br>".join((str(guide)
+                            for guide in obj.guides.iterator()))
+        return mark_safe(value)
+
+    get_guides.short_description = "Гиды"
