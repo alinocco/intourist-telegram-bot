@@ -11,8 +11,7 @@ class PaymentAdmin(admin.ModelAdmin):
             None,
             {
                 "fields": (
-                    # "tourist_signup__user",
-                    # "tourist_signup__tour",
+                    "tourist_signup",
                     "channel",
                     "amount",
                 )
@@ -32,8 +31,6 @@ class PaymentAdmin(admin.ModelAdmin):
         ),
     )
     list_display = (
-        # "tourist_signup__user",
-        # "tourist_signup__tour_instance",
         "channel",
         "amount",
         "info",
@@ -42,11 +39,9 @@ class PaymentAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
-        # "tourist_signup__user",
         "tourist_signup__tour_instance",
-        "tourist_signup__tour_instance__tour",
         ("created_date", DateRangeFilter)
     )
 
-    readonly_fields = ("info", "created_date", "modified_date")
+    readonly_fields = ("tourist_signup", "info", "created_date", "modified_date")
     search_fields = ("pk", "tourist_signup__user")

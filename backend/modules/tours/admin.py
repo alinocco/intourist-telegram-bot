@@ -7,6 +7,7 @@ from modules.tours.models import Tour, TourInstance
 
 class LocationInline(admin.TabularInline):
     model = Tour.locations.through
+    # TODO: Add change as for ForeignKey field
 
 
 @admin.register(Tour)
