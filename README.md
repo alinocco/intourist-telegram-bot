@@ -188,6 +188,4 @@ Set of environment variables affected business logic.
 
 ### To Do
 
-* Admin for all instances.
-* `/signup` (with payment info attached).
 * Trello integration with mappers.
