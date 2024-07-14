@@ -31,6 +31,7 @@ class TouristSignupAdmin(admin.ModelAdmin):
              "classes": ("grp-collapse", "grp-closed")},
         ),
     )
+
     list_display = (
         "created_date",
         "tour_instance",
