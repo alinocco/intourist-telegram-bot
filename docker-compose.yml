@@ -10,6 +10,12 @@ services:
     env_file:
       - .env
 
+  redis:
+    image: redis:6.2.6
+    ports:
+      - "6379:6379"
+    restart: on-failure
+
   backend:
     build:
       context: ./backend
