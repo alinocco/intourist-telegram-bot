@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'modules.tours.apps.ToursConfig',
     'modules.users.apps.UsersConfig',
     'modules.utils.apps.UtilsConfig',
+    'modules.trello.apps.TrelloConfig',
 ]
 
 MIDDLEWARE = [
